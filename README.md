@@ -2,7 +2,7 @@
 
 Firefox dynamic long urlbar on focus. userChrome script.
 
-
+Screenshot: https://video.twimg.com/tweet_video/FhH0i7dacAw9Mzx.mp4
 
 
 
