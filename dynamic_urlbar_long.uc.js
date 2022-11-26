@@ -14,7 +14,7 @@ console.log("dynamic_urlbar_long.uc.js");
 (() => {
   
     const css_urlbarlong = `
-        toolbaritem#urlbar-container ~ toolbarspring, 
+        #nav-bar-customization-target  toolbarspring, 
         toolbaritem#urlbar-container ~ toolbaritem
         { 
             display: none; 
