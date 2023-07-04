@@ -1,6 +1,6 @@
 /* Firefox userChrome script
  * Dynamic long urlbar on focus
- * Tested on Firefox 102
+ * Tested on Firefox 115
  * Author: garywill (https://garywill.github.io)
  * 
  */
@@ -15,7 +15,7 @@ console.log("dynamic_urlbar_long.uc.js");
   
     const css_urlbarlong = `
         #nav-bar-customization-target  toolbarspring, 
-        toolbaritem#urlbar-container ~ toolbaritem
+        toolbaritem#urlbar-container ~ toolbaritem:not([data-extensionid])
         { 
             display: none; 
         }
@@ -24,6 +24,7 @@ console.log("dynamic_urlbar_long.uc.js");
         toolbaritem#urlbar-container ~ toolbarbutton stack.toolbarbutton-badge-stack, 
         toolbaritem#urlbar-container ~ toolbarbutton .toolbarbutton-icon, 
         toolbaritem#urlbar-container ~ toolbarbutton .toolbarbutton-badge, 
+        toolbaritem#urlbar-container ~ toolbaritem , 
         toolbarbutton#nav-bar-overflow-button
         {
             
