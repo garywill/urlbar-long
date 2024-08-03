@@ -1,6 +1,6 @@
 /* Firefox userChrome script
  * Dynamic long urlbar on focus
- * Tested on Firefox 115
+ * Tested on Firefox 128
  * Author: garywill (https://garywill.github.io)
  * 
  */
@@ -42,7 +42,7 @@ console.log("dynamic_urlbar_long.uc.js");
     const urlbar_input = urlbar_container.querySelector("input#urlbar-input") ;
     
     var observer = new MutationObserver(function(){
-        if ( urlbar.getAttribute("focused") == "true" )
+        if ( urlbar.getAttribute("focused") == "true" || urlbar.getAttribute("focused") === "" )
         {
             setTimeout(function() {
                 if ( urlbar.getAttribute("breakout-extend") == "true"
@@ -54,6 +54,7 @@ console.log("dynamic_urlbar_long.uc.js");
         }
         else
         {
+            // console.log("urlbar lose focus");
             unregisterCss();
         }
     });
@@ -103,21 +104,21 @@ console.log("dynamic_urlbar_long.uc.js");
             return false;
     }
     
-    document.getElementById("navigator-toolbox-background").addEventListener("click", function() {
-//         console.log(event);
+    document.getElementById("nav-bar-customization-target").addEventListener("click", function() {
+        // console.log(event);
         if ( isCssRegistered() )
         {
             const mostTop = this;
-//             console.log(mostTop);
+            // console.log(mostTop);
             
             const noEventArea = mostTop.querySelector("#urlbar-container");
             
             const clickTarget = event.target;
-//             console.log(clickTarget);
+            // console.log(clickTarget);
             
             for ( var ele = clickTarget ; ele && ele !== mostTop ; ele = ele.parentNode)
             {
-//                 console.log("for loop ele=", ele);
+                // console.log("for loop ele=", ele);
                 if (ele === noEventArea)
                 {
                     return;
