@@ -1,6 +1,6 @@
 /* Firefox userChrome script
  * Dynamic long urlbar on focus
- * Tested on Firefox 128
+ * Tested on Firefox 140
  * Author: garywill (https://garywill.github.io)
  * 
  */
@@ -25,11 +25,17 @@ console.log("dynamic_urlbar_long.uc.js");
         toolbaritem#urlbar-container ~ toolbarbutton .toolbarbutton-icon, 
         toolbaritem#urlbar-container ~ toolbarbutton .toolbarbutton-badge, 
         toolbaritem#urlbar-container ~ toolbaritem , 
+        toolbaritem#urlbar-container ~ toolbaritem toolbarbutton,
+        toolbaritem#urlbar-container ~ toolbaritem stack.toolbarbutton-badge-stack,
+        toolbaritem#urlbar-container ~ toolbaritem .toolbarbutton-icon,
+        toolbaritem#urlbar-container ~ toolbaritem .toolbarbutton-badge,
         toolbarbutton#nav-bar-overflow-button
         {
             
             padding-left: 0.3px  !important ; 
             padding-right: 0.3px !important ; 
+            margin-left: 0 !important;
+            margin-right: 0 !important;
             
             --toolbarbutton-inner-padding: 0.3px;
             
@@ -38,7 +44,7 @@ console.log("dynamic_urlbar_long.uc.js");
     ` ; 
     
     const urlbar_container = document.querySelector("toolbaritem#urlbar-container");
-    const urlbar =       urlbar_container.querySelector("hbox#urlbar");
+    const urlbar =       urlbar_container.querySelector("div#urlbar");
     const urlbar_input = urlbar_container.querySelector("input#urlbar-input") ;
     
     var observer = new MutationObserver(function(){
